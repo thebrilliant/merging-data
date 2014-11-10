@@ -13,5 +13,5 @@ angular.module('AddressBook', []) {
 
 		//enables order by last name
 		$scope.order = 'lastname';
-	}
+	})
 };
