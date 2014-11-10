@@ -13,7 +13,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.1/angular.min.js"></script>
         
     </head>
-    <body>
+    <body ng-app="AddressBook" ng-controller="AddressController">
         <main class="container-fluid">
             <header class="page-title">
                 <h1>City of Pawnee Address Book</h1>
@@ -37,11 +37,11 @@
 
             <section>
                 <ul class="cards">
-                    <li class="card">
+                    <li class="card" ng-repeat="employee in employees">
                         <!-- this img should show the employee picture --> 
-                        <img alt="">
+                        <img ng-src="{{employee.picUrl}}" alt="picture of {{employee.firstName}} {{employees.lastName}}">
                         <div class="details">
-                            <h2 class="name"> <!-- employee name goes here --> </h2>
+                            <h2 class="name">{{employee.firstName}} {{employee.lastName}}</h2>
                             <p class="title"> <!-- employee title goes here --> </p>
                             <p class="department"> <!-- employee department goes here --> </p>
                             <p class="phone"><a> <!-- employee phone goes here (if present); hyperlink should dial number on mobile phone --> </a></p>
