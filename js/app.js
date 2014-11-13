@@ -1,5 +1,4 @@
 /* 
-    app.js
     Angular application for the address book challenge
 */
 
@@ -28,7 +27,4 @@ angular.module('AddressBook', [])
 		$scope.isSortedBy = function (colName) {
 			return $scope.sortCol == colName;
 		};
-
-		//function for filtering employees
-
 	});
