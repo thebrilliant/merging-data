@@ -20,16 +20,16 @@
             </header>
 
             <section>
-                <!-- sort buttons; you will add attributes and code to make them resort the list -->
+                <!-- buttons set to sort the list by columns -->
                 <div class="sort-ui">
                     <span>Sort By: </span>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-default">Last Name</button>
-                        <button type="button" class="btn btn-default">First Name</button>
-                        <button type="button" class="btn btn-default">Department</button>
+                        <button type="button" class="btn btn-default" ng-click = "sortBy('lastName')" ng-class="{active: isSortedBy('lastName')}">Last Name</button>
+                        <button type="button" class="btn btn-default" ng-click = "sortBy('firstName')" ng-class="{active: isSortedBy('firstName')}">First Name</button>
+                        <button type="button" class="btn btn-default" ng-click = "sortBy('department')" ng-class="{active: isSortedBy('department')}">Department</button>
                     </div>
                 </div>
-                <!-- filter input; you will add attributes to make this filter the list based on value entered -->
+                <!-- filters input usng the input -->
                 <div class="filter-ui">
                     <input type="text" class="form-control" placeholder="Search...">
                 </div>
@@ -37,15 +37,16 @@
 
             <section>
                 <ul class="cards">
+                    <!-- gets information for all of the employees -->
                     <li class="card" ng-repeat="employee in employees | orderBy : sortCol : sortReverse">
-                        <!-- this img should show the employee picture --> 
+                        <!-- prints out all of the employees' information -->
                         <img ng-src="{{employee.picUrl}}" alt="picture of {{employee.firstName}} {{employees.lastName}}">
                         <div class="details">
                             <h2 class="name">{{employee.firstName}} {{employee.lastName}}</h2>
                             <p class="title">{{employee.title}}</p>
                             <p class="department">{{employee.department}}</p>
                             <p class="phone" ng-if="'phone'"><a href="tel: phone">{{employee.phone}}</a></p>
-                            <p class="email" ng-if="'email'"><a href="mailto: email"> <!-- employee email goes here (if present); hyperlink should open a new email to email address --> {{employee.email}}</a></p>
+                            <p class="email" ng-if="'email'"><a href="mailto: email">{{employee.email}}</a></p>
                         </div>
                     </li>
                 </ul>
