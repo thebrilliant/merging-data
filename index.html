@@ -37,15 +37,15 @@
 
             <section>
                 <ul class="cards">
-                    <li class="card" ng-repeat="employee in employees">
+                    <li class="card" ng-repeat="employee in employees | orderBy : sortCol : sortReverse">
                         <!-- this img should show the employee picture --> 
                         <img ng-src="{{employee.picUrl}}" alt="picture of {{employee.firstName}} {{employees.lastName}}">
                         <div class="details">
                             <h2 class="name">{{employee.firstName}} {{employee.lastName}}</h2>
                             <p class="title">{{employee.title}}</p>
                             <p class="department">{{employee.department}}</p>
-                            <p class="phone" ng-if="{{phone}} in employee"><a href="tel: phone">{{employee.phone}}</a></p>
-                            <p class="email" ng-if="{{email}} in employees"><a href="mailto: email"> <!-- employee email goes here (if present); hyperlink should open a new email to email address --> {{employee.email}}</a></p>
+                            <p class="phone" ng-if="'phone'"><a href="tel: phone">{{employee.phone}}</a></p>
+                            <p class="email" ng-if="'email'"><a href="mailto: email"> <!-- employee email goes here (if present); hyperlink should open a new email to email address --> {{employee.email}}</a></p>
                         </div>
                     </li>
                 </ul>

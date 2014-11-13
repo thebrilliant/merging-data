@@ -13,4 +13,22 @@ angular.module('AddressBook', [])
 
 		//enables order by last name
 		$scope.order = 'lastname';
+
+		//function for sorting employees by given column
+		$scope.sortBy = function (colName) {
+			if($scope.sortCol == colName){
+				$scope.sortReverse = !$scope.sortReverse;
+			} else {
+				$scope.sortReverse = false;
+				$scope.sortCol =  colName;
+			}
+		};
+
+		//function to tell whether or not a column has been sorted
+		$scope.isSortedBy = function (colName) {
+			return $scope.sortCol == colName;
+		};
+
+		//function for filtering employees
+
 	});
