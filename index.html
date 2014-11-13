@@ -31,14 +31,14 @@
                 </div>
                 <!-- filters input usng the input -->
                 <div class="filter-ui">
-                    <input type="text" class="form-control" placeholder="Search...">
+                    <input type="text" class="form-control" placeholder="Search..." ng-model="searchText">
                 </div>
             </section>
 
             <section>
                 <ul class="cards">
                     <!-- gets information for all of the employees -->
-                    <li class="card" ng-repeat="employee in employees | orderBy : sortCol : sortReverse">
+                    <li class="card" ng-repeat="employee in employees | orderBy : sortCol : sortReverse | filter:searchText">
                         <!-- prints out all of the employees' information -->
                         <img ng-src="{{employee.picUrl}}" alt="picture of {{employee.firstName}} {{employees.lastName}}">
                         <div class="details">
